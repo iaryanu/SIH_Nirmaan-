@@ -1,0 +1,44 @@
+@import "tailwindcss";
+
+:root {
+  --color-navy: #05274a;
+  --color-cream: #f7f3ea;
+  --color-green: #137547;
+  --color-saffron: #f28c2b;
+  --ribbon-bg: #03172a;
+  --muted-text: #334155;
+}
+
+@theme inline {
+  --color-background: var(--color-cream);
+  --color-foreground: var(--muted-text);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-background: #0a0a0a;
+    --color-foreground: #ededed;
+  }
+}
+
+body {
+  background-color: var(--color-cream);
+  color: var(--muted-text);
+  font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.status-pill {
+  @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-medium;
+}
+
+.gi-mark {
+  background: linear-gradient(
+    135deg,
+    var(--color-saffron),
+    var(--color-navy)
+  );
+}
