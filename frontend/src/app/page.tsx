@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Home() {
   return (
     <div className="min-h-screen bg-[var(--color-cream)] text-slate-800">
@@ -10,17 +12,20 @@ export default function Home() {
       <header className="mx-auto max-w-6xl px-6 py-6">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div
-              className="gi-mark flex h-11 w-11 items-center justify-center rounded-full text-sm font-bold text-white shadow-sm"
-              aria-hidden
-            >
-              GI
-            </div>
+            <Link href="/">
+              <div
+                className="gi-mark flex h-11 w-11 items-center justify-center rounded-full text-sm font-bold text-white shadow-sm"
+                aria-hidden
+              >
+                GI
+              </div>
+            </Link>
 
             <div>
               <div className="text-xl font-bold leading-tight text-[var(--color-navy)]">
                 Grievance Intelligence
               </div>
+
               <div className="mt-0.5 text-xs text-slate-500">
                 CPGRAMS · AI Decision Support
               </div>
@@ -31,12 +36,12 @@ export default function Home() {
             </span>
           </div>
 
-          <button
-            type="button"
+          <Link
+            href="/"
             className="rounded-md border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-[var(--color-navy)] transition hover:border-[var(--color-navy)] hover:bg-slate-50"
           >
             Home
-          </button>
+          </Link>
         </div>
       </header>
 
@@ -77,6 +82,7 @@ export default function Home() {
             accentColor="var(--color-green)"
             icon="→"
             buttonText="Enter Citizen Portal"
+            href="/citizen/login"
           />
 
           <PortalCard
@@ -86,6 +92,7 @@ export default function Home() {
             accentColor="var(--color-navy)"
             icon="◆"
             buttonText="Enter Officer Portal"
+            href="/officer/login"
           />
         </section>
 
@@ -94,8 +101,8 @@ export default function Home() {
           <p className="text-xs leading-5 text-slate-500">
             Demo supports Citizen, Officer and Nodal/Admin views.
             <span className="mx-2 text-slate-300">•</span>
-            Authentication and backend services will be connected in the
-            next stage.
+            Authentication and backend services will be connected in the next
+            stage.
           </p>
         </div>
       </main>
@@ -127,6 +134,7 @@ function PortalCard({
   buttonText,
   accentColor,
   icon,
+  href,
 }: {
   type: string;
   title: string;
@@ -134,6 +142,7 @@ function PortalCard({
   buttonText: string;
   accentColor: string;
   icon: string;
+  href: string;
 }) {
   return (
     <div
@@ -197,14 +206,14 @@ function PortalCard({
 
       {/* Button */}
       <div className="relative mt-6">
-        <a
-          href="#"
+        <Link
+          href={href}
           className="inline-flex items-center gap-2 rounded-lg px-4 py-2.5 text-sm font-semibold text-white transition hover:opacity-90"
           style={{ backgroundColor: accentColor }}
         >
           {buttonText}
           <span aria-hidden>→</span>
-        </a>
+        </Link>
       </div>
     </div>
   );
